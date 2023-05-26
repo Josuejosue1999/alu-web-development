@@ -1,21 +1,46 @@
+/* Add styles for the body */
 body {
-    display: flex;
-    flex-direction: column;
+  background-color: #f8f8f8;
+  color: #333;
+  font-family: Arial, sans-serif;
 }
 
+/* Add styles for the header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+/* Add styles for the logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Add styles for the main content */
 main {
-    display: flex;
-    flex-direction: row;
-    flex: auto;
+  padding: 20px;
 }
 
+/* Add styles for the article */
 article {
-    flex: 2;
-    overflow-y: auto;
+  background-color: #fff;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
+/* Add styles for the aside */
 aside {
-    flex: 1;
-    overflow-y: auto;
+  background-color: #f2f2f2;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
 
+/* Add styles for the footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
