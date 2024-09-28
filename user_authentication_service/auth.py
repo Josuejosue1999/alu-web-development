@@ -130,7 +130,7 @@ def _hash_password(password: str) -> str:
     """
     e_pwd = password.encode()
     hashed_pwd = bcrypt.hashpw(e_pwd, bcrypt.gensalt())
-    return hashed_pwd.decode('utf-8')  # Convert bytes to string before returning
+    return hashed_pwd.decode('utf-8') 
 
 
 def _generate_uuid() -> str:
