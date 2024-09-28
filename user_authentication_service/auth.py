@@ -46,7 +46,7 @@ class Auth:
             user = db.find_user_by(email=email)
         except NoResultFound:
             return False
-        if not bcrypt.checkpw(password.encode('utf-8'), user.hashed_password):
+        if not bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
             return False
         return True
 
@@ -107,10 +107,10 @@ class Auth:
     def update_password(self, reset_token: str, password: str) -> None:
         """ Update password for user with matching reset token
             Args:
-                - reset_toke: user's reset token
+                - reset_token: user's reset token
                 - password: new password
             Return:
-            - None
+                - None
         """
         db = self._db
         try:
@@ -121,15 +121,16 @@ class Auth:
                        reset_token=None)
 
 
-def _hash_password(password: str) -> bytes:
+def _hash_password(password: str) -> str:
     """ Creates password hash
         Args:
             - password: user password
         Return:
-            - hashed password
+            - hashed password as a string
     """
     e_pwd = password.encode()
-    return bcrypt.hashpw(e_pwd, bcrypt.gensalt())
+    hashed_pwd = bcrypt.hashpw(e_pwd, bcrypt.gensalt())
+    return hashed_pwd.decode('utf-8')  # Convert bytes to string before returning
 
 
 def _generate_uuid() -> str:
