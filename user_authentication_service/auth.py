@@ -46,7 +46,8 @@ class Auth:
             user = db.find_user_by(email=email)
         except NoResultFound:
             return False
-        if not bcrypt.checkpw(password.encode('utf-8'), user.hashed_password.encode('utf-8')):
+        if not bcrypt.checkpw(password.encode('utf-8'), 
+        user.hashed_password.encode('utf-8')):
             return False
         return True
 
@@ -130,8 +131,7 @@ def _hash_password(password: str) -> str:
     """
     e_pwd = password.encode()
     hashed_pwd = bcrypt.hashpw(e_pwd, bcrypt.gensalt())
-    return hashed_pwd.decode('utf-8') 
-
+    return hashed_pwd.decode('utf-8')
 
 def _generate_uuid() -> str:
     """ Generates unique ids
