@@ -110,7 +110,7 @@ class Auth:
                 - reset_toke: user's reset token
                 - password: new password
             Return:
-                - None
+            - None
         """
         db = self._db
         try:
